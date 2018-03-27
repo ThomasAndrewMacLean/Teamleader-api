@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-require('./app/routes')(app);
+routes(app);
 
 let port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`app listening on port ${port}`));
