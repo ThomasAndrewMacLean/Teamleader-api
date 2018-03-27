@@ -1,0 +1,16 @@
+info heroku cli: https://devcenter.heroku.com/articles/heroku-cli
+
+install heroku cli:
+brew install heroku/brew/heroku
+
+login:
+heroku login
+
+create app:
+heroku create --region eu
+
+deploy app:
+git push heroku master
+
+listen to logs:
+heroku logs -t -a nameless-citadel-45339
