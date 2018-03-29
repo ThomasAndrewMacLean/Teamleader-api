@@ -1,5 +1,7 @@
 //@ts-check
 const WebhookNotification = require('./models/webhookNotification');
+const orders = require('./../mock-db/orders');
+const products = require('./../mock-db/products');
 
 
 module.exports = function (app) {
@@ -11,15 +13,10 @@ module.exports = function (app) {
 
     app.post('/contact', (req, res) => {
         console.log(req.body);
+        let whn = new WebhookNotification(req.body);
 
-        let whn = new WebhookNotification();
-        whn.account_id = req.body.account_id;
-        whn.event_type = req.body.event_type;
-        whn.object_type = req.body.object_type;
-        whn.object_id = req.body.object_id;
-
-        whn.save().then(() => {
-            res.status(200).json(req.body);
+        whn.save().then(saved => {
+            res.status(200).json(saved);
         });
     });
 
@@ -27,6 +24,15 @@ module.exports = function (app) {
         WebhookNotification.find().exec().then(notifications => {
             res.status(200).json(notifications);
         });
+    });
+
+
+    app.get('/getOrders', (req, res) => {
+        res.status(200).json(orders);
+    });
+
+    app.get('/getProducts', (req, res) => {
+        res.status(200).json(products);
     });
 
     app.get('*/*', (req, res) => {
