@@ -1,26 +1,26 @@
 ## API
 
-###GET
+### GET
 
-####/ping
+#### /ping
 Returns status 200 and json {'message':'alive'}
 
-####/notifications
+#### /notifications
 Returns list of webhooknotifications.  
 Every time a contact is added or edited in teamleader this is logged here.
 
-####/getOrders
+#### /getOrders
 Returns list of demo orders
 
-####/getProducts
+#### /getProducts
 Returns list of demo products
 
-####/getCustomers
+#### /getCustomers
 Returns list of demo customers
 
-###POST
+### POST
 
-####/calculateDiscount
+#### /calculateDiscount
 Returns the order object with the discount and new price.
 Requires an order object in the body, sent as JSON.
 An order requires an array of items, and each item needs to have following properties:  
