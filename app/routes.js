@@ -3,6 +3,7 @@ const WebhookNotification = require('./models/webhookNotification');
 const orders = require('./../mock-db/orders');
 const products = require('./../mock-db/products');
 const customers = require('./../mock-db/customers');
+const orderController = require('./orderController');
 
 module.exports = function (app) {
     app.get('/ping', (req, res) => {
@@ -26,7 +27,6 @@ module.exports = function (app) {
         });
     });
 
-
     app.get('/getOrders', (req, res) => {
         res.status(200).json(orders);
     });
@@ -37,6 +37,24 @@ module.exports = function (app) {
 
     app.get('/getCustomers', (req, res) => {
         res.status(200).json(customers);
+    });
+
+    app.post('/calculateDiscount', (req, res) => {
+        let order = req.body.order;
+
+        if (order && orderController.checkIfObjectIsOrder(order)) {
+            let newPrice = orderController.calculateTotalPrice(order);
+            order.discount = (Math.round((newPrice - parseFloat(order.total)) * 100) / 100).toString();
+            order.priceWithDiscount = newPrice.toString();
+
+            res.status(200).json({
+                order: order
+            });
+        } else {
+            res.status(500).json({
+                message: 'no valid order found'
+            });
+        }
     });
 
     app.get('*/*', (req, res) => {
