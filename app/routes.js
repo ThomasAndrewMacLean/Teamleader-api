@@ -2,7 +2,7 @@
 const WebhookNotification = require('./models/webhookNotification');
 const orders = require('./../mock-db/orders');
 const products = require('./../mock-db/products');
-
+const customers = require('./../mock-db/customers');
 
 module.exports = function (app) {
     app.get('/ping', (req, res) => {
@@ -33,6 +33,10 @@ module.exports = function (app) {
 
     app.get('/getProducts', (req, res) => {
         res.status(200).json(products);
+    });
+
+    app.get('/getCustomers', (req, res) => {
+        res.status(200).json(customers);
     });
 
     app.get('*/*', (req, res) => {
