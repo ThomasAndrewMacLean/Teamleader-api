@@ -46,7 +46,7 @@ module.exports = function (app) {
             let newPrice = orderController.calculateTotalPrice(order);
             order.discount = (Math.round((newPrice - parseFloat(order.total)) * 100) / 100).toString();
             order.priceWithDiscount = newPrice.toString();
-
+            order.timestamp = +new Date();
             res.status(200).json({
                 order: order
             });

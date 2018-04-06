@@ -35,7 +35,6 @@ const orderController = {
         return 'ok';
     },
     checkIfObjectIsOrder(order) {
-        console.log(order);
 
         let keys = Object.keys(order);
         let hasItems = keys.includes('items');
