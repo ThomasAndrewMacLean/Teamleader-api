@@ -107,7 +107,7 @@ it('should offer 5+1 free on category 2', () => {
     expect(ctrl.calculateTotalPrice(order)).toBeCloseTo(49.90 - 4.99);
 });
 
-it('should offer 5+1 free on category 2 6items', () => {
+it('should offer 5+1 free on category 2 (6items)', () => {
     let order = {
         items: [{
             'product-id': 'B102',
@@ -120,7 +120,7 @@ it('should offer 5+1 free on category 2 6items', () => {
     expect(ctrl.calculateTotalPrice(order)).toBeCloseTo(6 - 1);
 });
 
-it('should offer 5+1 free on category 2 5items', () => {
+it('should offer 5+1 free on category 2 (5items)', () => {
     let order = {
         items: [{
             'product-id': 'B102',
@@ -131,6 +131,18 @@ it('should offer 5+1 free on category 2 5items', () => {
     };
 
     expect(ctrl.calculateTotalPrice(order)).toBeCloseTo(5);
+});
+it('should offer 5+1 free on category 2 (12items)', () => {
+    let order = {
+        items: [{
+            'product-id': 'B102',
+            'quantity': '12',
+            'unit-price': '1',
+            'total': '12'
+        }]
+    };
+
+    expect(ctrl.calculateTotalPrice(order)).toBeCloseTo(12-2);
 });
 
 it('should offer 5+1 free on category 2 (20 items)', () => {
