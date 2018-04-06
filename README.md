@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ThomasAndrewMacLean/Teamleader-api.svg?branch=master)](https://travis-ci.org/ThomasAndrewMacLean/Teamleader-api)
+
 ## API
 
 ### GET
