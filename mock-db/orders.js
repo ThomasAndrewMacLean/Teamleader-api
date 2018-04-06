@@ -35,4 +35,5 @@ module.exports = [{
     }
     ],
     'total': '69.00'
+
 }];
