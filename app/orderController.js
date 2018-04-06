@@ -17,7 +17,7 @@ const orderController = {
         return total;
     },
     giveDiscountCategory1(total, items) {
-        let itemsCategory1 = items.filter(i => this.getProductCategory(i) === '1');
+        let itemsCategory1 = items.filter(i => this.getProductCategory(i) === '1' && i.quantity !== 0);
         if (itemsCategory1.length && (itemsCategory1.length > 1 || itemsCategory1[0].quantity > 1)) {
             total -= (this.getCheapestItem(itemsCategory1)['unit-price'] * 20 / 100);
         }
