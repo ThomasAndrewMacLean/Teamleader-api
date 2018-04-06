@@ -13,7 +13,7 @@ const orderController = {
         return total > 1000 ? total = total * 90 / 100 : total;
     },
     giveDiscountCategory2(total, items) {
-        items.filter(i => this.getProductCategory(i) === '2' && i.quantity > 6).forEach(f => total -= (f['unit-price'] * Math.floor(f.quantity / 6)));
+        items.filter(i => this.getProductCategory(i) === '2' && i.quantity >= 6).forEach(f => total -= (f['unit-price'] * Math.floor(f.quantity / 6)));
         return total;
     },
     giveDiscountCategory1(total, items) {
