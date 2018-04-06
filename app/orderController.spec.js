@@ -184,6 +184,24 @@ it('should give 20% on cheapest product if more than one is bought from cat 1 (2
     expect(ctrl.calculateTotalPrice(order)).toBeCloseTo(11 - (5 * 20 / 100));
 });
 
+
+it('should not give 20% on cheapest product if more only one is bought from cat 1', () => {
+    let order = {
+        items: [{
+            'product-id': 'A101',
+            'quantity': '1',
+            'unit-price': '5',
+            'total': '5'
+        }, {
+            'product-id': 'A102',
+            'quantity': '0',
+            'unit-price': '6',
+            'total': '0'
+        }]
+    };
+    expect(ctrl.calculateTotalPrice(order)).toBeCloseTo(5);
+});
+
 it('should give 20% on cheapest product if more than one is bought from cat 1 (only 1 product)', () => {
     let order = {
         items: [{
