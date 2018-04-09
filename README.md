@@ -50,9 +50,11 @@ Returns list of demo customers
 Returns the order object with the discount and new price.
 Requires an order object in the body, sent as JSON.
 An order requires an array of items, and each item needs to have following properties:  
-    "product-id", "quantity", "unit-price", "total"
+    `"product-id", "quantity", "unit-price", "total"`
 
 example of a valid order:
+
+```
 {"order":{
   "id": "1",
   "customer-id": "1",
@@ -66,3 +68,4 @@ example of a valid order:
   ],
   "total": "49.90"
 }}
+```
