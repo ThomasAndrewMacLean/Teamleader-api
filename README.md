@@ -1,5 +1,29 @@
 [![Build Status](https://travis-ci.org/ThomasAndrewMacLean/Teamleader-api.svg?branch=master)](https://travis-ci.org/ThomasAndrewMacLean/Teamleader-api)
 
+## Table of Contents
+
+- [Getting started](#getting-started)
+- [Tests](#tests)
+- [CI](#ci)
+- [Api](#api)
+  - [Get](#get)
+  - [Post](#post)
+
+## Getting started
+
+You must have node installed. Clone the repository and run `npm install` or `yarn install`.
+After everything has been installed run `npm start-dev` or `yarn start-dev`. The site is now running on `http://localhost:8080/`.
+
+This site is also live on [heroku](https://nameless-citadel-45339.herokuapp.com/).
+
+## Tests
+
+Test suites can be run with the command `npm test-dev` or `yarn test-dev`. Testing is done with jest. 
+
+## CI
+
+On every commit to github, the project is built using [travis](https://travis-ci.org/ThomasAndrewMacLean/Teamleader-api) and all tests are run. If all goes well the new version gets deployed on [heroku](https://nameless-citadel-45339.herokuapp.com/).
+
 ## API
 
 ### GET
